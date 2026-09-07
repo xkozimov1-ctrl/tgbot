@@ -1,0 +1,11 @@
+{
+  "welcome": "Hello! 👋\nI'm BMT Anime bot. Send me a name to search for a movie or anime.",
+  "language_selected": "Language successfully changed! 🇬🇧",
+  "search_prompt": "✍️ Please enter the movie or anime name:",
+  "not_found": "❌ Nothing found. Please try another name.",
+  "choose_language": "🌐 Choose a language:",
+  "admin_only": "⛔ This command is for admins only!",
+  "stats": "📊 Bot stats:\n👥 Users: {users}\n🎬 Movies: {movies}\n📝 Queries: {queries}",
+  "movie_info": "🎬 *{title}*\n📅 Year: {year}\n⭐ Rating: {rating}\n📝 {description}",
+  "error": "⚠️ An error occurred. Please try again."
+}
