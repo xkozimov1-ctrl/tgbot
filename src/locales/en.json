@@ -1,6 +1,6 @@
 {
-  "welcome": "Hello! 👋\nI'm BMT Anime bot. Send me a name to search for a movie or anime.",
-  "language_selected": "Language successfully changed! 🇬🇧",
+  "welcome": "Hello! 👋\nI'm BMT Anime bot.",
+  "language_selected": "✅ Language successfully changed! 🇬🇧",
   "search_prompt": "✍️ Please enter the movie or anime name:",
   "not_found": "❌ Nothing found. Please try another name.",
   "choose_language": "🌐 Choose a language:",

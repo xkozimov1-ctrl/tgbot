@@ -443,3 +443,168 @@ module.exports = {
   isAdmin,
   getAllAdmins
 };
+// services/supabase.js ga qo'shing
+
+// ============================================
+// TAVSIYA FUNKSIYALARI
+// ============================================
+
+// Ommabop kinolar
+async function getTrendingMovies(limit = 10, type = null) {
+  const { data, error } = await supabase
+    .rpc('get_trending_movies', {
+      limit_count: limit,
+      movie_type: type
+    });
+  return { data, error };
+}
+
+// Tasodifiy tavsiyalar
+async function getRandomRecommendations(limit = 5, excludeIds = [], type = null) {
+  const { data, error } = await supabase
+    .rpc('get_random_recommendations', {
+      limit_count: limit,
+      exclude_ids: excludeIds,
+      movie_type: type
+    });
+  return { data, error };
+}
+
+// Janr bo'yicha kinolar
+async function getMoviesByGenre(genre, limit = 10, sortBy = 'rating') {
+  const { data, error } = await supabase
+    .rpc('get_movies_by_genre', {
+      genre_name: genre,
+      limit_count: limit,
+      sort_by: sortBy
+    });
+  return { data, error };
+}
+
+// Shaxsiy tavsiyalar
+async function getPersonalRecommendations(userTelegramId, limit = 10) {
+  const { data, error } = await supabase
+    .rpc('get_personal_recommendations', {
+      user_telegram_id: userTelegramId,
+      limit_count: limit
+    });
+  return { data, error };
+}
+
+// Yangi kinolar
+async function getLatestMovies(limit = 10, type = null) {
+  const { data, error } = await supabase
+    .rpc('get_latest_movies', {
+      limit_count: limit,
+      movie_type: type
+    });
+  return { data, error };
+}
+
+// Yuqori reytingli kinolar
+async function getTopRatedMovies(limit = 10, minRating = 7.0, type = null) {
+  const { data, error } = await supabase
+    .rpc('get_top_rated_movies', {
+      limit_count: limit,
+      min_rating: minRating,
+      movie_type: type
+    });
+  return { data, error };
+}
+
+// O'xshash kinolar
+async function getSimilarMovies(movieId, limit = 5) {
+  const { data, error } = await supabase
+    .rpc('get_similar_movies', {
+      movie_id: movieId,
+      limit_count: limit
+    });
+  return { data, error };
+}
+
+// Yil bo'yicha filter
+async function getMoviesByYear(yearFrom, yearTo, limit = 20, type = null) {
+  const { data, error } = await supabase
+    .rpc('get_movies_by_year', {
+      year_from: yearFrom,
+      year_to: yearTo,
+      limit_count: limit,
+      movie_type: type
+    });
+  return { data, error };
+}
+
+// Murakkab filter
+async function filterMovies({
+  searchTerm = null,
+  type = null,
+  genres = null,
+  yearFrom = null,
+  yearTo = null,
+  minRating = null,
+  sortBy = 'rating',
+  sortOrder = 'DESC',
+  page = 1,
+  limit = 20
+}) {
+  const { data, error } = await supabase
+    .rpc('filter_movies', {
+      search_term: searchTerm,
+      movie_type: type,
+      genre_filter: genres,
+      year_from: yearFrom,
+      year_to: yearTo,
+      min_rating: minRating,
+      sort_by: sortBy,
+      sort_order: sortOrder,
+      page: page,
+      limit_count: limit
+    });
+  return { data, error };
+}
+
+// Barcha janrlar
+async function getAllGenres() {
+  const { data, error } = await supabase
+    .rpc('get_all_genres');
+  return { data, error };
+}
+
+// Batafsil statistika
+async function getDetailedStats(daysBack = 30) {
+  const { data, error } = await supabase
+    .rpc('get_detailed_stats', {
+      days_back: daysBack
+    });
+  return { data, error };
+}
+
+// Kino yangilash
+async function updateMovie(movieId, updates) {
+  const { data, error } = await supabase
+    .rpc('update_movie_details', {
+      movie_id: movieId,
+      new_title: updates.title || null,
+      new_year: updates.year || null,
+      new_rating: updates.rating || null,
+      new_description: updates.description || null,
+      new_genre: updates.genre || null
+    });
+  return { data, error };
+}
+
+module.exports = {
+  // ... oldingi funksiyalar
+  getTrendingMovies,
+  getRandomRecommendations,
+  getMoviesByGenre,
+  getPersonalRecommendations,
+  getLatestMovies,
+  getTopRatedMovies,
+  getSimilarMovies,
+  getMoviesByYear,
+  filterMovies,
+  getAllGenres,
+  getDetailedStats,
+  updateMovie
+};

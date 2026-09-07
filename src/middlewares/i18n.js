@@ -1,14 +1,23 @@
+const fs = require('fs');
+const path = require('path');
+
+// ============================================
+// TARJIMALARNI YUKLASH
+// ============================================
 const locales = {
-  uz: require('../locales/uz.json'),
-  ru: require('../locales/ru.json'),
-  en: require('../locales/en.json')
+  uz: JSON.parse(fs.readFileSync(path.join(__dirname, '../locales/uz.json'), 'utf8')),
+  ru: JSON.parse(fs.readFileSync(path.join(__dirname, '../locales/ru.json'), 'utf8')),
+  en: JSON.parse(fs.readFileSync(path.join(__dirname, '../locales/en.json'), 'utf8'))
 };
 
-// Foydalanuvchi tilini saqlash (oddiy Map)
+// Foydalanuvchi tilini saqlash
 const userLanguage = new Map();
 
+// ============================================
+// TIL FUNKSIYALARI
+// ============================================
 function getLanguage(userId) {
-  return userLanguage.get(userId) || 'uz'; // default O'zbek
+  return userLanguage.get(userId) || 'uz';
 }
 
 function setLanguage(userId, lang) {
@@ -21,11 +30,11 @@ function setLanguage(userId, lang) {
 
 function t(userId, key, params = {}) {
   const lang = getLanguage(userId);
-  let text = locales[lang][key] || locales['uz'][key] || key;
+  let text = locales[lang]?.[key] || locales['uz']?.[key] || key;
   
   // Parametrlarni almashtirish
   Object.keys(params).forEach(k => {
-    text = text.replace(`{${k}}`, params[k]);
+    text = text.replace(new RegExp(`{${k}}`, 'g'), params[k]);
   });
   
   return text;

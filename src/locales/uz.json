@@ -1,11 +1,11 @@
 {
-  "welcome": "Assalomu alaykum! 👋\nMen BMT Anime botiman. Kino yoki anime izlash uchun menga nom yuboring.",
-  "language_selected": "Til muvaffaqiyatli o'zgartirildi! 🇺🇿",
+  "welcome": "Assalomu alaykum! 👋\nMen BMT Anime botiman.",
+  "language_selected": "✅ Til muvaffaqiyatli o'zgartirildi! 🇺🇿",
   "search_prompt": "✍️ Iltimos, kino yoki anime nomini kiriting:",
   "not_found": "❌ Hech narsa topilmadi. Iltimos, boshqa nom bilan qayta urinib ko'ring.",
   "choose_language": "🌐 Tilni tanlang:",
   "admin_only": "⛔ Bu buyruq faqat adminlar uchun!",
   "stats": "📊 Bot statistikasi:\n👥 Foydalanuvchilar: {users}\n🎬 Kinolar: {movies}\n📝 So'rovlar: {queries}",
-  "movie_info": "🎬 *{title}*\n📅 Yil: {year}\n⭐ Raiting: {rating}\n📝 {description}",
+  "movie_info": "🎬 *{title}*\n📅 Yil: {year}\n⭐ Reyting: {rating}\n📝 {description}",
   "error": "⚠️ Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
 }

@@ -1,18 +1,25 @@
 {
   "name": "bmt-anime-bot",
   "version": "1.0.0",
+  "description": "BMT Anime Telegram Bot - Multi-language anime/movie search bot",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": ["telegram", "bot", "anime", "movie", "nodejs"],
+  "author": "BMT",
+  "license": "MIT",
   "dependencies": {
-    "telegraf": "^4.15.3",
     "@supabase/supabase-js": "^2.39.0",
     "dotenv": "^16.3.1",
-    "winston": "^3.11.0"
+    "telegraf": "^4.15.3"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
